@@ -10,6 +10,8 @@
     initLazyLoading();
     initAnimatedCounters();
     initDashboard();
+    initTestimonialsCarousel();
+    initScrollToTop();
   });
 
   /**
@@ -429,5 +431,83 @@
     };
 
     updateDashboard(sampleData);
+  }
+
+  /**
+   * Testimonials carousel
+   */
+  function initTestimonialsCarousel() {
+    const track = document.querySelector('.testimonials-track');
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
+    const dotsContainer = document.querySelector('.testimonial-dots');
+    
+    if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
+    
+    const cards = track.children;
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    
+    // Create dots
+    for (let i = 0; i < totalCards; i++) {
+      const dot = document.createElement('div');
+      dot.className = 'testimonial-dot';
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
+    
+    const dots = dotsContainer.children;
+    
+    function updateDots() {
+      Array.from(dots).forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    function goToSlide(index) {
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
+    }
+    
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalCards;
+      goToSlide(currentIndex);
+    }
+    
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+      goToSlide(currentIndex);
+    }
+    
+    nextBtn.addEventListener('click', nextSlide);
+    prevBtn.addEventListener('click', prevSlide);
+    
+    // Auto-play
+    setInterval(nextSlide, 5000);
+  }
+
+  /**
+   * Scroll to top button
+   */
+  function initScrollToTop() {
+    const scrollBtn = document.getElementById('scroll-to-top');
+    if (!scrollBtn) return;
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+    
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
   }
 })();
