@@ -1,36 +1,43 @@
 {
-  "totalClients": 127,
-  "avgRating": 4.8,
-  "efficiencyGain": 38,
-  "projectsData": {
-    "labels": ["Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025"],
+  "totalSellers": 1247,
+  "totalServiceProviders": 892,
+  "successfulMatches": 3456,
+  "activeRequests": 234,
+  "completedOrders": 2891,
+  "inProcessOrders": 156,
+  "servicesProvided": 5678,
+  "platformEfficiency": 94.2,
+  "matchesData": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     "datasets": [{
-      "label": "Projects Completed",
-      "data": [18, 24, 31, 28, 35, 42],
+      "label": "Successful Matches",
+      "data": [234, 345, 456, 567, 678, 789],
       "borderColor": "#0066cc",
       "backgroundColor": "rgba(0, 102, 204, 0.1)",
       "tension": 0.4,
       "fill": true
     }]
   },
-  "satisfactionData": {
-    "labels": ["Strategy & Advisory", "Process Optimization", "Digital Tools", "Training & Enablement"],
+  "servicesData": {
+    "labels": ["Storage Space", "Packing Services", "Shipping Help", "Quality Check", "Inventory Mgmt", "Other"],
     "datasets": [{
-      "label": "Service Distribution",
-      "data": [35, 28, 22, 15],
+      "label": "Services Distribution",
+      "data": [35, 28, 22, 8, 5, 2],
       "backgroundColor": [
         "#0066cc",
         "#0099ff",
         "#33aaff",
-        "#66ccff"
+        "#66ccff",
+        "#99ccff",
+        "#cceeff"
       ],
       "hoverOffset": 4
     }]
   },
   "additionalMetrics": {
-    "digitalToolsDeployed": 89,
-    "trainingSessions": 156,
-    "avgProjectDuration": 12,
-    "clientRetentionRate": 94
+    "avgMatchTime": "2.3 hours",
+    "satisfactionRate": 96,
+    "monthlyRevenue": "$45,230",
+    "activeRegions": 12
   }
 }
