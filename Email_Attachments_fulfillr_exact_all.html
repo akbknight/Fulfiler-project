@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fulfillr | AI Fulfillment Network</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <meta name="color-scheme" content="light">
+</head>
+<body class="bg-white text-gray-900">
+  <!-- NavBar -->
+  <nav class="sticky top-0 z-50 w-full border-b border-gray-200 bg-white bg-opacity-80 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="#" class="flex items-center gap-3">
+          <img alt="Fulfillr logo" class="h-8"
+               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='40' viewBox='0 0 160 40'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%230ea5e9' offset='0'/><stop stop-color='%2322c55e' offset='1'/></linearGradient></defs><rect rx='8' ry='8' width='40' height='40' fill='url(%23g)'/><text x='20' y='26' text-anchor='middle' font-family='Inter, Arial, sans-serif' font-size='18' fill='white' font-weight='700'>F</text><text x='52' y='26' font-family='Inter, Arial, sans-serif' font-size='18' fill='%230b1220' font-weight='700'>Fulfillr</text></svg>"/>
+          <span class="text-lg font-semibold text-gray-900">Fulfillr</span>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#product" class="text-gray-700 hover:text-gray-900">Product</a>
+          <a href="#how" class="text-gray-700 hover:text-gray-900">How it works</a>
+          <a href="#pricing" class="text-gray-700 hover:text-gray-900">Pricing</a>
+          <a href="#faq" class="text-gray-700 hover:text-gray-900">FAQ</a>
+          <a href="#contact" class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold shadow-sm transition hover:opacity-90 border bg-sky-500 text-white border-sky-600">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="bg-gradient-to-b from-white to-sky-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid items-center gap-10 py-16 md:grid-cols-2 md:py-24">
+        <div>
+          <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-3 py-1 text-xs text-gray-600 shadow-sm">
+            <span>🚀</span><span>Sellers meet space. Orders meet speed.</span>
+          </div>
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">The first AI-powered peer-to-peer fulfillment network</h1>
+          <p class="mt-4 whitespace-pre-line text-lg text-gray-700">
+            Consider it handled. And shipped.
+            <br>We connect e-commerce sellers with nearby, trusted capacity—homes, shared warehouses, and enterprise hubs—so orders move faster at lower cost.
+          </p>
+          <div class="mt-8 flex items-center gap-3">
+            <a href="#pricing" class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold shadow-sm transition hover:opacity-90 border bg-sky-500 text-white border-sky-600">Join the network →</a>
+            <a href="#contact" class="inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold shadow-sm transition hover:opacity-90 border bg-white text-sky-600 border-gray-200">Get early access</a>
+          </div>
+          <ul class="mt-6 flex flex-wrap items-center gap-4 text-sm text-gray-600">
+            <li class="inline-flex items-center gap-2">🛡 Real-time visibility</li>
+            <li class="inline-flex items-center gap-2">🛡 Trusted providers</li>
+            <li class="inline-flex items-center gap-2">🛡 5-minute setup</li>
+          </ul>
+        </div>
+        <div>
+          <!-- Dashboard graphic -->
+          <img alt="Product dashboard" class="w-full rounded-2xl border border-gray-200 shadow"
+               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1024' height='600' viewBox='0 0 1024 600'><defs><linearGradient id='lg' x1='0' y1='0' x2='0' y2='1'><stop offset='0' stop-color='%230ea5e9' stop-opacity='0.6'/><stop offset='1' stop-color='%230ea5e9' stop-opacity='0'/></linearGradient></defs><rect width='1024' height='600' fill='%23f8fafc'/><rect x='24' y='24' width='976' height='60' rx='10' fill='white' stroke='%23e5e7eb'/><circle cx='56' cy='54' r='8' fill='%230ea5e9'/><text x='72' y='58' font-family='Inter, Arial' font-size='14' fill='%230b1220'>Fulfillr Dashboard</text><g transform='translate(24,104)'><rect width='480' height='140' rx='12' fill='white' stroke='%23e5e7eb'/><text x='24' y='44' font-family='Inter, Arial' font-size='12' fill='%236b7280'>Orders (last 7d)</text><text x='24' y='82' font-family='Inter, Arial' font-size='32' font-weight='700' fill='%230b1220'>12,480</text><text x='160' y='82' font-family='Inter, Arial' font-size='14' fill='%2322c55e'>▲ 8.2%</text><rect x='24' y='96' width='432' height='8' rx='4' fill='%23e5e7eb'/><rect x='24' y='96' width='310' height='8' rx='4' fill='%230ea5e9'/></g><g transform='translate(24,260)'><rect width='480' height='140' rx='12' fill='white' stroke='%23e5e7eb'/><text x='24' y='44' font-family='Inter, Arial' font-size='12' fill='%236b7280'>On-time rate</text><text x='24' y='82' font-family='Inter, Arial' font-size='32' font-weight='700' fill='%230b1220'>98.4%</text><text x='160' y='82' font-family='Inter, Arial' font-size='14' fill='%2322c55e'>▲ 1.1%</text><rect x='24' y='96' width='432' height='8' rx='4' fill='%23e5e7eb'/><rect x='24' y='96' width='425' height='8' rx='4' fill='%2322c55e'/></g><g transform='translate(24,416)'><rect width='480' height='160' rx='12' fill='white' stroke='%23e5e7eb'/><text x='24' y='44' font-family='Inter, Arial' font-size='12' fill='%236b7280'>Cost / order</text><text x='24' y='82' font-family='Inter, Arial' font-size='28' font-weight='700' fill='%230b1220'>$3.42</text><text x='130' y='82' font-family='Inter, Arial' font-size='14' fill='%23ef4444'>▼ 5.1%</text><g transform='translate(24,96)'><rect y='0' width='28' height='52' rx='6' fill='%230ea5e9'/><rect x='44' y='12' width='28' height='40' rx='6' fill='%230ea5e9'/><rect x='88' y='6' width='28' height='46' rx='6' fill='%230ea5e9'/><rect x='132' y='20' width='28' height='32' rx='6' fill='%230ea5e9'/><rect x='176' y='10' width='28' height='42' rx='6' fill='%230ea5e9'/><rect x='220' y='0' width='28' height='52' rx='6' fill='%230ea5e9'/><rect x='264' y='8' width='28' height='44' rx='6' fill='%230ea5e9'/></g></g><g transform='translate(520,104)'><rect width='480' height='472' rx='12' fill='white' stroke='%23e5e7eb'/><text x='24' y='44' font-family='Inter, Arial' font-size='12' fill='%236b7280'>Network throughput</text><text x='24' y='68' font-family='Inter, Arial' font-size='20' font-weight='700' fill='%230b1220'>Orders / day</text><rect x='24' y='88' width='432' height='1' fill='%23e5e7eb'/><path d='M24,360 L56,340 L88,320 L120,330 L152,300 L184,280 L216,292 L248,250 L280,260 L312,230 L344,210 L376,190 L408,210 L440,180 L456,180 L456,360 Z' fill='url(%23lg)'/><path d='M24,360 L56,340 L88,320 L120,330 L152,300 L184,280 L216,292 L248,250 L280,260 L312,230 L344,210 L376,190 L408,210 L440,180 L456,180' stroke='%230ea5e9' stroke-width='3' fill='none'/><g stroke='%23e5e7eb' stroke-width='1'><line x1='24' y1='360' x2='456' y2='360'/><line x1='24' y1='310' x2='456' y2='310'/><line x1='24' y1='260' x2='456' y2='260'/><line x1='24' y1='210' x2='456' y2='210'/><line x1='24' y1='160' x2='456' y2='160'/></g><g fill='%230ea5e9'><circle cx='56' cy='340' r='5'/><circle cx='120' cy='330' r='5'/><circle cx='184' cy='280' r='5'/><circle cx='248' cy='250' r='5'/><circle cx='312' cy='230' r='5'/><circle cx='376' cy='190' r='5'/><circle cx='440' cy='180' r='5'/></g><g transform='translate(320,32)'><rect width='160' height='24' rx='12' fill='%23f1f5f9' stroke='%23e5e7eb'/><circle cx='14' cy='12' r='5' fill='%230ea5e9'/><text x='28' y='16' font-family='Inter, Arial' font-size='12' fill='%230b1220'>Fulfilled</text><circle cx='96' cy='12' r='5' fill='%2322c55e'/><text x='110' y='16' font-family='Inter, Arial' font-size='12' fill='%230b1220'>SLA</text></g><g><rect x='330' y='220' width='130' height='46' rx='8' fill='white' stroke='%23e5e7eb'/><text x='340' y='240' font-family='Inter, Arial' font-size='12' fill='%236b7280'>Peak Hour</text><text x='340' y='255' font-family='Inter, Arial' font-size='14' font-weight='700' fill='%230b1220'>+26% vs avg</text></g></g></svg>" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product -->
+  <section id="product" class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-semibold uppercase tracking-wide text-sky-600">Why now</p>
+        <h2 class="mt-2 text-3xl font-bold text-gray-900">E-commerce is booming. Generic fulfillment is breaking.</h2>
+      </div>
+      <div class="mt-10 grid gap-10 md:grid-cols-2">
+        <img alt="Product detail" class="w-full rounded-2xl border border-gray-200 shadow"
+             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1024' height='600' viewBox='0 0 1024 600'><rect width='1024' height='600' fill='%23f8fafc'/><rect x='24' y='24' width='976' height='60' rx='10' fill='white' stroke='%23e5e7eb'/><circle cx='56' cy='54' r='8' fill='%230ea5e9'/><text x='72' y='58' font-family='Inter, Arial' font-size='14' fill='%230b1220'>Fulfillr Dashboard</text><g transform='translate(24,104)'><rect width='480' height='140' rx='12' fill='white' stroke='%23e5e7eb'/><text x='24' y='44' font-family='Inter, Arial' font-size='12' fill='%236b7280'>Orders (last 7d)</text><text x='24' y='82' font-family='Inter, Arial' font-size='32' font-weight='700' fill='%230b1220'>12,480</text><text x='160' y='82' font-family='Inter, Arial' font-size='14' fill='%2322c55e'>▲ 8.2%</text></g></svg>"/>
+        <ul class="space-y-4">
+          <li class="flex items-start gap-3"><span class="text-green-500">✔</span><span>Cut cost to serve by matching orders to nearby, underused space</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500">✔</span><span>AI scoring for speed, reliability, and handling compatibility</span></li>
+          <li class="flex items-start gap-3"><span class="text-green-500">✔</span><span>Live dashboards for inventory, SLAs, and on-time performance</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how" class="bg-sky-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-3xl font-bold text-gray-900">How it works</h2>
+      <div class="mt-12 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Create your profile</h3>
+          <p class="mt-2 text-gray-700">Sellers and fulfillers add location, capacity, handling tags (e.g., luxury, food-grade), schedules, and preferences.</p>
+        </div>
+        <div class="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Match &amp; choose</h3>
+          <p class="mt-2 text-gray-700">Our AI filters by proximity, capacity, trust score, and handling fit. See best, fastest, or lowest-cost options and confirm.</p>
+        </div>
+        <div class="rounded-2xl border border-sky-100 bg-white p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-gray-900">Fulfill &amp; track</h3>
+          <p class="mt-2 text-gray-700">Orders flow automatically. Labels, pickup, and updates sync in real time. Both sides rate performance to improve future matches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-3xl font-bold text-gray-900">What customers say</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div class="mb-3 flex items-center gap-1"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="text-gray-800">“Fulfillr turned idle space into reliable revenue while keeping local brands fast.”</p>
+          <p class="mt-4 text-sm text-gray-600">Operations Lead — DTC Apparel</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div class="mb-3 flex items-center gap-1"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="text-gray-800">“Set up in minutes. The matching accuracy saves us real money.”</p>
+          <p class="mt-4 text-sm text-gray-600">Founder — Beauty Brand</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div class="mb-3 flex items-center gap-1"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+          <p class="text-gray-800">“Visibility and trust are the game-changers here.”</p>
+          <p class="mt-4 text-sm text-gray-600">COO — Specialty Food</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="bg-sky-50 py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-bold text-gray-900">Pricing</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border p-6 shadow-sm bg-white">
+          <p class="text-sm font-semibold text-sky-600">Tier 1 — Starter (P2P)</p>
+          <div class="mt-2 text-3xl font-bold text-gray-900">$0 <span class="text-base font-medium text-gray-600">+ fees</span></div>
+          <ul class="mt-4 space-y-2 text-left">
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Pay-per-order</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Basic dashboard</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Standard support</span></li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">Start free →</a>
+        </div>
+        <div class="rounded-2xl border-2 border-sky-400 p-6 shadow-sm bg-white">
+          <p class="text-sm font-semibold text-sky-600">Tier 2 — Growth (Shared Warehouse)</p>
+          <div class="mt-2 text-3xl font-bold text-gray-900">$49 <span class="text-base font-medium text-gray-600">/mo</span></div>
+          <ul class="mt-4 space-y-2 text-left">
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Advanced analytics</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Handling specialization tags</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Priority support</span></li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">Upgrade →</a>
+        </div>
+        <div class="rounded-2xl border p-6 shadow-sm bg-white">
+          <p class="text-sm font-semibold text-sky-600">Tier 3 — Enterprise Hubs</p>
+          <div class="mt-2 text-3xl font-bold text-gray-900">Custom</div>
+          <ul class="mt-4 space-y-2 text-left">
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>SSO &amp; SLAs</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Dedicated success</span></li>
+            <li class="flex items-start gap-2"><span class="text-green-500">✔</span><span>Custom workflows</span></li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">Talk to sales →</a>
+        </div>
+      </div>
+      <p class="mt-6 text-sm text-gray-600">Hybrid model: subscription for software + percentage of transaction cost where applicable.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-center text-3xl font-bold text-gray-900">FAQ</h2>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p class="font-semibold text-gray-900">What makes Fulfillr different?</p>
+          <p class="mt-2 text-gray-700">A single platform that scales from peer-to-peer to enterprise hubs, with AI matching based on proximity, capacity, and specialized handling.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p class="font-semibold text-gray-900">How do you ensure trust?</p>
+          <p class="mt-2 text-gray-700">Verification, virtual tours, performance history, and two-way ratings feed a reliability score used in matching.</p>
+        </div>
+        <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <p class="font-semibold text-gray-900">Who can host space?</p>
+          <p class="mt-2 text-gray-700">Vetted home-based fulfillers, shared warehouses with spare capacity, and large hubs that meet compliance requirements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="bg-gradient-to-b from-sky-50 to-white py-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="text-3xl font-bold text-gray-900">Contact us</h2>
+        <p class="mt-2 text-gray-700">Want early access or to become a fulfiller? Tell us a bit about you.</p>
+      </div>
+      <form class="mx-auto mt-10 max-w-xl space-y-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm" onsubmit="event.preventDefault(); document.getElementById('status').textContent='Thanks — we will be in touch within one business day.'; this.reset();">
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Name</label>
+          <input class="mt-1 w-full rounded-xl border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-sky-500" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" class="mt-1 w-full rounded-xl border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-sky-500" required />
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Message</label>
+          <textarea rows="4" class="mt-1 w-full rounded-xl border border-gray-300 p-3 focus:outline-none focus:ring-2 focus:ring-sky-500" required></textarea>
+        </div>
+        <button type="submit" class="inline-flex items-center justify-center rounded-2xl bg-gray-900 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:opacity-90">
+          Send message →
+        </button>
+        <p id="status" class="text-sm text-gray-700"></p>
+      </form>
+      <p class="mt-4 text-sm text-gray-600 text-center">
+        Or reach us: <a href="mailto:hello@fulfillr.example" class="text-sky-600 underline">hello@fulfillr.example</a> · <a href="tel:+12024375301" class="text-sky-600 underline">+1 (202) 437-5301</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-gray-200 bg-white py-12">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-10">
+      <div>
+        <img alt="logo" class="h-8"
+             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='40' viewBox='0 0 160 40'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='%230ea5e9' offset='0'/><stop stop-color='%2322c55e' offset='1'/></linearGradient></defs><rect rx='8' ry='8' width='40' height='40' fill='url(%23g)'/><text x='20' y='26' text-anchor='middle' font-family='Inter, Arial, sans-serif' font-size='18' fill='white' font-weight='700'>F</text><text x='52' y='26' font-family='Inter, Arial, sans-serif' font-size='18' fill='%230b1220' font-weight='700'>Fulfillr</text></svg>"/>
+        <p class="mt-3 text-sm text-gray-700">Sellers meet space. Orders meet speed.</p>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-gray-900">Product</p>
+        <ul class="mt-3 space-y-2">
+          <li><a href="#product" class="text-sm text-gray-700 hover:text-gray-900">Overview</a></li>
+          <li><a href="#how" class="text-sm text-gray-700 hover:text-gray-900">How it works</a></li>
+          <li><a href="#pricing" class="text-sm text-gray-700 hover:text-gray-900">Pricing</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-gray-900">Company</p>
+        <ul class="mt-3 space-y-2">
+          <li><a href="#" class="text-sm text-gray-700 hover:text-gray-900">About</a></li>
+          <li><a href="#" class="text-sm text-gray-700 hover:text-gray-900">Careers</a></li>
+          <li><a href="#" class="text-sm text-gray-700 hover:text-gray-900">Press</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-sm font-semibold text-gray-900">Resources</p>
+        <ul class="mt-3 space-y-2">
+          <li><a href="#" class="text-sm text-gray-700 hover:text-gray-900">Security</a></li>
+          <li><a href="#" class="text-sm text-gray-700 hover:text-gray-900">Privacy</a></li>
+          <li><a href="#" class="text-sm text-gray-700 hover:text-gray-900">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mt-8 text-sm text-gray-500 text-center">© 2025 Fulfillr. All rights reserved.</p>
+  </footer>
+</body>
+</html>

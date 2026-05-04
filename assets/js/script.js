@@ -1,8 +1,6 @@
 
 (function () {
-  console.log('Script loaded, waiting for DOMContentLoaded');
   document.addEventListener("DOMContentLoaded", function () {
-    console.log('DOMContentLoaded fired, initializing functions');
     initSmoothScroll();
     initMobileNav();
     initContactForm();
@@ -12,8 +10,6 @@
     initLazyLoading();
     initAnimatedCounters();
     initDashboard();
-    initTestimonialsCarousel();
-    initScrollToTop();
   });
 
   /**
@@ -152,52 +148,24 @@
    * Theme toggle functionality
    */
   function initThemeToggle() {
-    console.log('initThemeToggle called');
-    const themeToggle = document.querySelector('.theme-toggle');
-    if (!themeToggle) {
-      console.error('Theme toggle button not found');
-      return;
-    }
-
-    console.log('Theme toggle button found:', themeToggle);
-
-    // Check system preference first, then localStorage
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-
-    console.log('Initial theme:', initialTheme, 'prefersDark:', prefersDark, 'savedTheme:', savedTheme);
-
-    document.documentElement.setAttribute('data-theme', initialTheme);
-
-    themeToggle.addEventListener('click', (e) => {
-      console.log('Theme toggle clicked!');
-      alert('Theme toggle clicked!'); // Temporary alert for testing
-      e.preventDefault();
+    const themeToggle = document.createElement('button');
+    themeToggle.innerHTML = '🌓';
+    themeToggle.className = 'theme-toggle';
+    themeToggle.setAttribute('aria-label', 'Toggle theme');
+    
+    document.querySelector('.header-inner').appendChild(themeToggle);
+    
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    
+    themeToggle.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-
-      console.log('Switching from', currentTheme, 'to', newTheme);
-
+      
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
-
-      console.log('Theme set to:', newTheme, 'data-theme attribute:', document.documentElement.getAttribute('data-theme'));
-
-      // Add a subtle animation effect
-      themeToggle.style.animation = 'none';
-      setTimeout(() => {
-        themeToggle.style.animation = 'pulse 0.3s ease';
-      }, 10);
     });
-
-    // Listen for system theme changes when no manual preference is saved
-    if (!savedTheme) {
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        const newTheme = e.matches ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', newTheme);
-      });
-    }
   }
 
   /**
@@ -283,42 +251,59 @@
    * Dashboard initialization
    */
   function initDashboard() {
-    console.log('Initializing dashboard...');
+    // Check if we're running on file:// protocol
+    const isFileProtocol = window.location.protocol === 'file:';
 
-    // Show loading state
-    const loadingEl = document.getElementById('dashboard-loading');
-    const contentEl = document.getElementById('dashboard-content');
+    if (isFileProtocol) {
+      // Show the loading note for file:// protocol
+      document.getElementById('loading-note').style.display = 'block';
+      // For local file access, use a different approach or show a message
+      console.warn('Running on file:// protocol. Dashboard data may not load due to browser security restrictions.');
 
-    if (loadingEl) loadingEl.style.display = 'block';
-    if (contentEl) contentEl.style.display = 'none';
+      // Try to load data using a different method or show sample data
+      setTimeout(() => {
+        loadSampleData();
+      }, 1000); // Small delay to show loading state
+      return;
+    }
 
-    // For now, load sample data immediately to test
-    setTimeout(() => {
-      loadSampleData();
-    }, 500);
+    fetch('assets/data/data.json')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(data => {
+        updateDashboard(data);
+      })
+      .catch(error => {
+        console.error('Error loading dashboard data:', error);
+        // Fallback to sample data
+        console.log('Falling back to sample data...');
+        loadSampleData();
+      });
   }
 
   /**
    * Update dashboard with data
    */
   function updateDashboard(data) {
-    console.log('Updating dashboard with data:', data);
     try {
       // Update metrics immediately (no animation for dashboard)
-      document.getElementById('totalSellers').textContent = data.totalSellers.toLocaleString();
-      document.getElementById('totalServiceProviders').textContent = data.totalServiceProviders.toLocaleString();
-      document.getElementById('successfulMatches').textContent = data.successfulMatches.toLocaleString();
-      document.getElementById('platformEfficiency').textContent = data.platformEfficiency + '%';
-      document.getElementById('completedOrders').textContent = data.completedOrders.toLocaleString();
-      document.getElementById('inProcessOrders').textContent = data.inProcessOrders.toLocaleString();
-      document.getElementById('activeRequests').textContent = data.activeRequests.toLocaleString();
-      document.getElementById('servicesProvided').textContent = data.servicesProvided.toLocaleString();
+      document.getElementById('totalClients').textContent = data.totalClients.toLocaleString();
+      document.getElementById('avgRating').textContent = data.avgRating;
+      document.getElementById('efficiencyGain').textContent = data.efficiencyGain + '%';
+      document.getElementById('digitalToolsDeployed').textContent = data.additionalMetrics.digitalToolsDeployed.toLocaleString();
+      document.getElementById('trainingSessions').textContent = data.additionalMetrics.trainingSessions.toLocaleString();
+      document.getElementById('avgProjectDuration').textContent = data.additionalMetrics.avgProjectDuration;
+      document.getElementById('clientRetentionRate').textContent = data.additionalMetrics.clientRetentionRate + '%';
 
-      // Create matches chart
-      const matchesCtx = document.getElementById('projectsChart').getContext('2d');
-      new Chart(matchesCtx, {
+      // Create projects chart
+      const projectsCtx = document.getElementById('projectsChart').getContext('2d');
+      new Chart(projectsCtx, {
         type: 'line',
-        data: data.matchesData,
+        data: data.projectsData,
         options: {
           responsive: true,
           maintainAspectRatio: false,
@@ -328,7 +313,7 @@
             },
             title: {
               display: true,
-              text: 'Monthly Successful Matches',
+              text: 'Quarterly Project Completion',
               color: 'var(--text-primary)',
               font: {
                 size: 14,
@@ -363,11 +348,11 @@
         }
       });
 
-      // Create services chart
-      const servicesCtx = document.getElementById('satisfactionChart').getContext('2d');
-      new Chart(servicesCtx, {
+      // Create satisfaction chart (now service distribution)
+      const satisfactionCtx = document.getElementById('satisfactionChart').getContext('2d');
+      new Chart(satisfactionCtx, {
         type: 'doughnut',
-        data: data.servicesData,
+        data: data.satisfactionData,
         options: {
           responsive: true,
           maintainAspectRatio: false,
@@ -382,7 +367,7 @@
             },
             title: {
               display: true,
-              text: 'Services Distribution',
+              text: 'Service Distribution',
               color: 'var(--text-primary)',
               font: {
                 size: 14,
@@ -396,12 +381,6 @@
       // Hide loading, show content
       document.getElementById('dashboard-loading').style.display = 'none';
       document.getElementById('dashboard-content').style.display = 'block';
-      
-      console.log('Dashboard updated successfully');
-    } catch (error) {
-      console.error('Error updating dashboard:', error);
-    }
-  }
     } catch (error) {
       console.error('Error updating dashboard:', error);
       document.getElementById('dashboard-loading').innerHTML = '<p>Error displaying dashboard data</p>';
@@ -413,310 +392,42 @@
    */
   function loadSampleData() {
     const sampleData = {
-      "totalSellers": 1247,
-      "totalServiceProviders": 892,
-      "successfulMatches": 3456,
-      "activeRequests": 234,
-      "completedOrders": 2891,
-      "inProcessOrders": 156,
-      "servicesProvided": 5678,
-      "platformEfficiency": 94.2,
-      "matchesData": {
-        "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+      "totalClients": 127,
+      "avgRating": 4.8,
+      "efficiencyGain": 38,
+      "projectsData": {
+        "labels": ["Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025"],
         "datasets": [{
-          "label": "Successful Matches",
-          "data": [234, 345, 456, 567, 678, 789],
+          "label": "Projects Completed",
+          "data": [18, 24, 31, 28, 35, 42],
           "borderColor": "#0066cc",
           "backgroundColor": "rgba(0, 102, 204, 0.1)",
           "tension": 0.4,
           "fill": true
         }]
       },
-      "servicesData": {
-        "labels": ["Storage Space", "Packing Services", "Shipping Help", "Quality Check", "Inventory Mgmt", "Other"],
+      "satisfactionData": {
+        "labels": ["Strategy & Advisory", "Process Optimization", "Digital Tools", "Training & Enablement"],
         "datasets": [{
-          "label": "Services Distribution",
-          "data": [35, 28, 22, 8, 5, 2],
+          "label": "Service Distribution",
+          "data": [35, 28, 22, 15],
           "backgroundColor": [
             "#0066cc",
             "#0099ff",
             "#33aaff",
-            "#66ccff",
-            "#99ccff",
-            "#cceeff"
+            "#66ccff"
           ],
           "hoverOffset": 4
         }]
       },
       "additionalMetrics": {
-        "avgMatchTime": "2.3 hours",
-        "satisfactionRate": 96,
-        "monthlyRevenue": "$45,230",
-        "activeRegions": 12
+        "digitalToolsDeployed": 89,
+        "trainingSessions": 156,
+        "avgProjectDuration": 12,
+        "clientRetentionRate": 94
       }
     };
 
     updateDashboard(sampleData);
   }
-
-  /**
-   * Testimonials carousel
-   */
-  function initTestimonialsCarousel() {
-    const track = document.querySelector('.testimonials-track');
-    const prevBtn = document.querySelector('.testimonial-prev');
-    const nextBtn = document.querySelector('.testimonial-next');
-    const dotsContainer = document.querySelector('.testimonial-dots');
-    
-    if (!track || !prevBtn || !nextBtn || !dotsContainer) return;
-    
-    const cards = track.children;
-    const totalCards = cards.length;
-    let currentIndex = 0;
-    
-    // Create dots
-    for (let i = 0; i < totalCards; i++) {
-      const dot = document.createElement('div');
-      dot.className = 'testimonial-dot';
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goToSlide(i));
-      dotsContainer.appendChild(dot);
-    }
-    
-    const dots = dotsContainer.children;
-    
-    function updateDots() {
-      Array.from(dots).forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-      });
-    }
-    
-    function goToSlide(index) {
-      currentIndex = index;
-      track.style.transform = `translateX(-${currentIndex * 100}%)`;
-      updateDots();
-    }
-    
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalCards;
-      goToSlide(currentIndex);
-    }
-    
-    function prevSlide() {
-      currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-      goToSlide(currentIndex);
-    }
-    
-    nextBtn.addEventListener('click', nextSlide);
-    prevBtn.addEventListener('click', prevSlide);
-    
-    // Auto-play
-    setInterval(nextSlide, 5000);
-  }
-
-  /**
-   * Scroll to top button
-   */
-  function initScrollToTop() {
-    const scrollBtn = document.getElementById('scroll-to-top');
-    if (!scrollBtn) return;
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollBtn.classList.add('visible');
-      } else {
-        scrollBtn.classList.remove('visible');
-      }
-    });
-    
-  /**
-   * Scroll to top button
-   */
-  function initScrollToTop() {
-    const scrollBtn = document.getElementById('scroll-to-top');
-    if (!scrollBtn) return;
-    
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 300) {
-        scrollBtn.classList.add('visible');
-      } else {
-        scrollBtn.classList.remove('visible');
-      }
-    });
-    
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  /**
-   * Initialize particle effect for hero section
-   */
-  function initParticleEffect() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-
-    // Create particle container
-    const particleContainer = document.createElement('div');
-    particleContainer.className = 'particle-container';
-    particleContainer.style.cssText = `
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-      z-index: 1;
-    `;
-    hero.style.position = 'relative';
-    hero.appendChild(particleContainer);
-
-    // Create particles
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.className = 'particle';
-      particle.style.cssText = `
-        position: absolute;
-        width: ${Math.random() * 4 + 2}px;
-        height: ${Math.random() * 4 + 2}px;
-        background: rgba(0, 102, 204, ${Math.random() * 0.5 + 0.1});
-        border-radius: 50%;
-        top: ${Math.random() * 100}%;
-        left: ${Math.random() * 100}%;
-        animation: float ${Math.random() * 10 + 10}s ease-in-out infinite;
-        animation-delay: ${Math.random() * 5}s;
-      `;
-      particleContainer.appendChild(particle);
-    }
-  }
-
-  /**
-   * Initialize intersection observer for scroll animations
-   */
-  function initScrollAnimations() {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, observerOptions);
-
-    // Observe all animated elements
-    const animatedElements = document.querySelectorAll('[style*="animation"]');
-    animatedElements.forEach(el => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
-  }
-
-  /**
-   * Initialize magnetic effect for buttons
-   */
-  function initMagneticButtons() {
-    const buttons = document.querySelectorAll('.btn');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('mousemove', (e) => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left - rect.width / 2;
-        const y = e.clientY - rect.top - rect.height / 2;
-        
-        btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
-      });
-      
-      btn.addEventListener('mouseleave', () => {
-        btn.style.transform = 'translate(0, 0)';
-      });
-    });
-  }
-
-  /**
-   * Initialize typing effect for hero text
-   */
-  function initTypingEffect() {
-    const heroTitle = document.querySelector('.hero h1');
-    if (!heroTitle) return;
-
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    heroTitle.style.borderRight = '2px solid var(--accent)';
-
-    let i = 0;
-    const typeWriter = () => {
-      if (i < text.length) {
-        heroTitle.textContent += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 100);
-      } else {
-        heroTitle.style.borderRight = 'none';
-      }
-    };
-
-    setTimeout(typeWriter, 1000);
-  }
-
-  /**
-   * Initialize ripple effect for buttons
-   */
-  function initRippleEffect() {
-    const buttons = document.querySelectorAll('.btn');
-    
-    buttons.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        const ripple = document.createElement('span');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        const x = e.clientX - rect.left - size / 2;
-        const y = e.clientY - rect.top - size / 2;
-        
-        ripple.style.cssText = `
-          position: absolute;
-          width: ${size}px;
-          height: ${size}px;
-          left: ${x}px;
-          top: ${y}px;
-          background: rgba(255, 255, 255, 0.3);
-          border-radius: 50%;
-          transform: scale(0);
-          animation: ripple 0.6s ease-out;
-          pointer-events: none;
-        `;
-        
-        this.style.position = 'relative';
-        this.style.overflow = 'hidden';
-        this.appendChild(ripple);
-        
-        setTimeout(() => ripple.remove(), 600);
-      });
-    });
-  }
-
-  // Add CSS for ripple animation
-  const rippleStyle = document.createElement('style');
-  rippleStyle.textContent = `
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-  `;
-  document.head.appendChild(rippleStyle);
-
-  // Initialize new features
-  initParticleEffect();
-  initScrollAnimations();
-  initMagneticButtons();
-  initTypingEffect();
-  initRippleEffect();
 })();

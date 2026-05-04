@@ -1,10 +1,10 @@
-# Fulfilr - E-commerce Marketplace Platform
+# Fulfilr Consulting - Modern Business Solutions
 
 <div align="center">
-  <img src="assets/images/favicon.svg" alt="Fulfilr Logo" width="80" height="80">
-  <h1>📦 Fulfilr</h1>
-  <p><strong>Connect Sellers with Service Providers On-Demand</strong></p>
-  <p>Smart Matching · Verified Providers · Flexible Scaling</p>
+  <img src="assets/images/favicon.svg" alt="Fulfilr Consulting Logo" width="80" height="80">
+  <h1>🏢 Fulfilr Consulting</h1>
+  <p><strong>Modern Operating Systems for Teams That Need to Move Faster</strong></p>
+  <p>Strategy, Build & Enablement in One Blended Team</p>
 </div>
 
 ---
@@ -26,13 +26,13 @@
 
 ## 🎯 About
 
-Fulfilr is a marketplace platform that connects e-commerce sellers with freelance service providers offering storage space, packing services, shipping assistance, and more. Instead of renting expensive warehouses or hiring full-time staff, sellers can find flexible, on-demand solutions that scale with their business needs.
+Fulfilr Consulting is a strategy and technology firm helping organizations turn complex challenges into streamlined, scalable solutions. We work where business strategy meets operational excellence and digital transformation, building systems that reduce friction and support sustainable growth.
 
-### How It Works
-- **Smart Matching Algorithm** - AI-powered connections based on location, skills, and requirements
-- **Verified Service Providers** - Background-checked freelancers and businesses
-- **Flexible Booking** - On-demand or recurring services with transparent pricing
-- **Real-time Tracking** - Direct communication and progress monitoring
+### Our Services
+- **Business Strategy & Advisory** - Data-driven insights and realistic strategies
+- **Process Optimization** - Streamlined workflows and bottleneck removal
+- **Digital Tools & Automation** - Custom solutions and integrations
+- **Training & Change Enablement** - Adoption support and enablement
 
 ---
 
@@ -45,8 +45,8 @@ Fulfilr is a marketplace platform that connects e-commerce sellers with freelanc
 - **Smooth Animations** - Micro-interactions and transitions
 
 ### 📊 Interactive Dashboard
-- **Platform Performance Metrics** - Active sellers, service providers, matches
-- **Dynamic Charts** - Monthly matches and service distribution
+- **Live Performance Metrics** - Real-time business KPIs
+- **Dynamic Charts** - Project completion and service distribution
 - **Data Visualization** - Powered by Chart.js
 - **Loading States** - Professional loading experience
 
@@ -88,7 +88,7 @@ Fulfilr is a marketplace platform that connects e-commerce sellers with freelanc
 
 ## 🌐 Live Demo
 
-[View Live Demo](https://yourusername.github.io/fulfilr) *(Replace with your actual GitHub Pages URL)*
+[View Live Demo](https://yourusername.github.io/fulfilr-consulting) *(Replace with your actual GitHub Pages URL)*
 
 ---
 
@@ -102,8 +102,8 @@ Fulfilr is a marketplace platform that connects e-commerce sellers with freelanc
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/fulfilr.git
-   cd fulfilr
+   git clone https://github.com/yourusername/fulfilr-consulting.git
+   cd fulfilr-consulting
    ```
 
 2. **Open in browser**
@@ -249,16 +249,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-**Fulfilr**
-- **Email**: hello@fulfilr.com
+**Fulfilr Consulting**
+- **Email**: hello@fulfilr-consulting.com
 - **Phone**: +1 (202) 437-5301
 - **Location**: Washington, DC, United States
-- **LinkedIn**: [Fulfilr](https://linkedin.com/company/fulfilr)
+- **LinkedIn**: [Fulfilr Consulting](https://linkedin.com/company/fulfilr-consulting)
 
 ### Project Links
-- **GitHub**: [github.com/yourusername/fulfilr](https://github.com/yourusername/fulfilr)
-- **Website**: [fulfilr.com](https://fulfilr.com)
-- **Platform**: [Join Fulfilr](https://fulfilr.com)
+- **GitHub**: [github.com/yourusername/fulfilr-consulting](https://github.com/yourusername/fulfilr-consulting)
+- **Website**: [fulfilr-consulting.com](https://fulfilr-consulting.com)
+- **Portfolio**: [View Our Work](https://fulfilr-consulting.com/portfolio)
 
 ---
 
@@ -273,11 +273,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ by Fulfilr**
+**Made with ❤️ by Fulfilr Consulting**
 
 ⭐ Star this repo if you found it helpful!
 
-[⬆️ Back to Top](#fulfilr---e-commerce-marketplace-platform)
+[⬆️ Back to Top](#fulfilr-consulting---modern-business-solutions)
 
 </div></content>
 <parameter name="filePath">c:\Users\Akshay Kumar\Downloads\Fulfiler project\README.md
