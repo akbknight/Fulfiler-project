@@ -1,0 +1,36 @@
+{
+  "totalClients": 127,
+  "avgRating": 4.8,
+  "efficiencyGain": 38,
+  "projectsData": {
+    "labels": ["Q1 2024", "Q2 2024", "Q3 2024", "Q4 2024", "Q1 2025", "Q2 2025"],
+    "datasets": [{
+      "label": "Projects Completed",
+      "data": [18, 24, 31, 28, 35, 42],
+      "borderColor": "#0066cc",
+      "backgroundColor": "rgba(0, 102, 204, 0.1)",
+      "tension": 0.4,
+      "fill": true
+    }]
+  },
+  "satisfactionData": {
+    "labels": ["Strategy & Advisory", "Process Optimization", "Digital Tools", "Training & Enablement"],
+    "datasets": [{
+      "label": "Service Distribution",
+      "data": [35, 28, 22, 15],
+      "backgroundColor": [
+        "#0066cc",
+        "#0099ff",
+        "#33aaff",
+        "#66ccff"
+      ],
+      "hoverOffset": 4
+    }]
+  },
+  "additionalMetrics": {
+    "digitalToolsDeployed": 89,
+    "trainingSessions": 156,
+    "avgProjectDuration": 12,
+    "clientRetentionRate": 94
+  }
+}
